@@ -44,7 +44,7 @@ HELP
         hammer.run(%W{--reload-cache csv content-views --verbose --file #{file.path}})
       }
       refute_equal '', stderr
-      assert_equal stdout[0..-2], "Creating content view '#{name}'...done"
+      assert_equal stdout[0..-2], "Creating content view '#{name}'...\ndone"
 
       file.rewind
 
@@ -52,7 +52,7 @@ HELP
         hammer.run(%W{--reload-cache csv content-views --verbose --file #{file.path}})
       }
       assert_equal '', stderr
-      assert_equal stdout[0..-2], "Updating content view '#{name}'...done"
+      assert_equal stdout[0..-2], "Updating content view '#{name}'...\ndone"
       file.unlink
 
       stdout,stderr = capture {

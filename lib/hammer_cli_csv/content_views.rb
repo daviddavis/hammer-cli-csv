@@ -97,7 +97,7 @@ module HammerCLICsv
 
           contentview_id = @existing_contentviews[line[ORGANIZATION]][name]
           if !contentview_id
-            print _("Creating content view '%{name}'...") % {:name => name} if option_verbose?
+            puts _("Creating content view '%{name}'...") % {:name => name} if option_verbose?
             options = {
                 'organization_id' => foreman_organization(:name => line[ORGANIZATION]),
                 'name' => name,
@@ -108,7 +108,7 @@ module HammerCLICsv
             contentview_id = @api.resource(:content_views).call(:create, options)['id']
             @existing_contentviews[line[ORGANIZATION]][name] = contentview_id
           else
-            print _("Updating content view '%{name}'...") % {:name => name} if option_verbose?
+            puts _("Updating content view '%{name}'...") % {:name => name} if option_verbose?
           end
 
           options = {
